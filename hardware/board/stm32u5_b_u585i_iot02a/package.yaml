@@ -21,6 +21,7 @@ depends:
   - debug: master
   - uart: master
   - kv: develop
+  - csi: master
   # - kernel_init: v7.4_dev
   # - minialsa: v7.4-dev
   # - drv_sdmmc: v7.4-dev
@@ -58,7 +59,6 @@ build_config:
 source_file:
   - "drivers/stm32u5xx_hal_msp.c"
   - "drivers/stm32u5xx_it.c"
-  - "drivers/system_stm32u5xx.c"
   - "startup/startup.c"
   - "config/board.c"
   - "config/partition_conf.c"
