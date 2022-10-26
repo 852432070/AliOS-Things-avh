@@ -30,6 +30,7 @@
 //#include "uvoice_player.h"
 //#include "uvoice_recorder.h"
 //#include "uvoice_types.h"
+#ifdef BOARD_HAASEDUK1
 #include "ulog/ulog.h"
 #include "led.h"
 #include "oled/oled.h"
@@ -37,12 +38,15 @@
 #include "aos/hal/gpio.h"
 #include <vfsdev/gpio_dev.h>
 #include "player/player.h"
+#endif //BOARD_HAASEDUK1
 
 #define TAG "speech"
 
 
 int application_start(int argc, char **argv)
 {
+    aos_set_log_level(AOS_LL_DEBUG);
+#ifdef BOARD_HAASEDUK1
     uint64_t current;
     int32_t ret = 0;
     gpio_dev_t gpio_pa_en;
@@ -55,7 +59,7 @@ int application_start(int argc, char **argv)
     hal_gpio_init(&pa_en_gpio);
     hal_gpio_output_high(&pa_en_gpio);
 
-    aos_set_log_level(AOS_LL_DEBUG);
+    
     led_switch(LED1_NUM, LED_OFF);
     led_switch(LED2_NUM, LED_OFF);
     led_switch(LED3_NUM, LED_OFF);
@@ -77,6 +81,7 @@ int application_start(int argc, char **argv)
 
     player_play(PLAYER_MP3_WELCOME);
     // player_wait_complete();
+#endif //BOARD_HAASEDUK1
     /*Init tflite-micro speech engine*/
     setup();
 

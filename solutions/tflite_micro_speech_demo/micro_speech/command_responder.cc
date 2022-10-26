@@ -21,9 +21,11 @@ limitations under the License.
 extern "C" {
 #endif  // __cplusplus
 #include <ulog/ulog.h>
+#ifdef BOARD_HAASEDUK1
 #include "led.h"
 #include "player/player.h"
 #include "oled/oled.h"
+#endif //BOARD_HAASEDUK1
 #include "aos/kernel.h"
 #ifdef __cplusplus
 }  // extern "C"
@@ -36,9 +38,12 @@ static int control_type = 0;
 static void command_process_main(void *p)
 {
     while (1) {
+#ifdef BOARD_HAASEDUK1
         oled_show(OLED_STR_IDLE);
+#endif //BOARD_HAASEDUK1
         aos_sem_wait(&cmd_sem, AOS_WAIT_FOREVER);
         // player_wait_complete();
+#ifdef BOARD_HAASEDUK1
         if (control_type == 1) {
             led_switch(LED1_NUM, LED_ON);
             led_switch(LED2_NUM, LED_ON);
@@ -54,6 +59,7 @@ static void command_process_main(void *p)
         } else {
             oled_show(OLED_STR_IDLE);
         }
+#endif //BOARD_HAASEDUK1
     }
 }
 

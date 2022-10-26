@@ -51,7 +51,8 @@ build_config:
     - src/engine/tflite-micro/third_party/cmsis/
     - src/engine/tflite-micro/third_party/cmsis/CMSIS/NN/Include/
     - src/engine/tflite-micro/third_party/cmsis/CMSIS/DSP/Include/
-    - src/engine/tflite-micro/third_party/kissfft/
+    - src/engine/tflite-micro/third_party/kissfft/ 
+    - src/engine/tflite-micro/third_party/kissfft/tools/ ? <!CHIP_HAAS1000>
 
 # source_file:                             # <可选项> 指定参与编译的源代码文件，支持通配符，采用相对路径
 #   - src/*.c                              # 例：组件 src 目录下所有的扩展名为 c 的源代码文件
@@ -96,6 +97,8 @@ source_file:
   - src/engine/tflite-micro/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c
   - src/engine/tflite-micro/tensorflow/lite/experimental/microfrontend/lib/window.c
   - src/engine/tflite-micro/tensorflow/lite/experimental/microfrontend/lib/window_util.c
+  - src/engine/tflite-micro/third_party/kissfft/*.c ? <!CHIP_HAAS1000>
+  - src/engine/tflite-micro/third_party/kissfft/tools/*.c ? <!CHIP_HAAS1000>
 #  - example/aiagent_example.c
 
 ## 第五部分：配置信息

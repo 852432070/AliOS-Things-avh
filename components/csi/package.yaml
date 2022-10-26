@@ -38,6 +38,7 @@ license: Apache license v2.0                        # <可选项> 源代码的�
 build_config:
   include:
     - <CONFIG_CSI>/include
+    - CMSIS/Core/Include ? <__STM32U5__>
 #    - CMSIS/Core/Include ? <__ARCH_ARM__>
 
 # source_file:                             # <可选项> 指定参与编译的源代码文件，支持通配符，采用相对路径

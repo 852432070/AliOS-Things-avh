@@ -77,6 +77,7 @@ source_file:
   - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.c
   - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c
   - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.c
+  - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_mdf.c
   - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c
   - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c
   - drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c
@@ -103,10 +104,13 @@ source_file:
 #   CONFIG_PARAM_NOT_CHECK: y
 #   CONFIG_CLI: y
 def_config:
+  HAL_MDF_MODULE_ENABLED: 1
+  HAL_DMA_MODULE_ENABLED: 1
+  __STM32U5__: 1
 chip:
   arch_name: arm
   cpu_name: cortex-m33
-  vendor_name: alibaba IoT
+  vendor_name: ST
   ld_script: STM32U585AIIXQ_FLASH.ld
 
 hw_info:
