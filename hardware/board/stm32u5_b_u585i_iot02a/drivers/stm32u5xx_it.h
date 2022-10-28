@@ -1,7 +1,7 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    ThreadX/Tx_CMSIS_Wrapper/Inc/stm32u5xx_it.h
+  * @file    hardware/board/stm32u5_b_u585i_iot02a/drivers/stm32u5xx_it.h
   * @author  MCD Application Team
   * @brief   This file contains the headers of the interrupt handlers.
   ******************************************************************************

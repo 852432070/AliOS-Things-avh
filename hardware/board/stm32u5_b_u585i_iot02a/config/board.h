@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2015-2021 Alibaba Group Holding Limited
+ */
 #ifndef BOARD_H
 #define BOARD_H
 

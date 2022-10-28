@@ -1,7 +1,7 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    ThreadX/Tx_CMSIS_Wrapper/Inc/main.h
+  * @file    hardware/board/stm32u5_b_u585i_iot02a/drivers/main.h
   * @author  MCD Application Team
   * @brief   This file contains all the functions prototypes for the main.c
   *          file.

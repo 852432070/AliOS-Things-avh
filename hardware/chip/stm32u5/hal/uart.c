@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2015-2021 Alibaba Group Holding Limited
+ */
 #include "k_api.h"
 #include "aos/hal/uart.h"
 #include "k_config.h"

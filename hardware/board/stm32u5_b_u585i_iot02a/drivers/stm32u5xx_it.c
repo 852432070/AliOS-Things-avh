@@ -1,7 +1,7 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    ThreadX/Tx_CMSIS_Wrapper/Src/stm32u5xx_it.c
+  * @file    hardware/board/stm32u5_b_u585i_iot02a/drivers/stm32u5xx_it.c
   * @author  MCD Application Team
   * @brief   Main Interrupt Service Routines.
   *          This file provides template for all exceptions handler and

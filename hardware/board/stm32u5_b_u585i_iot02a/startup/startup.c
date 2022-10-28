@@ -1,3 +1,20 @@
+/**
+  ******************************************************************************
+  * @file    hardware/board/stm32u5_b_u585i_iot02a/startup/startup.c
+  * @author  MCD Application Team
+  * @brief   Starup for stm32u585
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2021 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 #include "stdio.h"
 #include "aos/init.h"
 #include <k_api.h>
