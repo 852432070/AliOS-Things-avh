@@ -1,11 +1,14 @@
 
 ## 第一部分： 基础信息
-name: stm32u5_b_u585i_iot02a                                      # <必选项> 包名称 （符合C语言变量命名规则），长度少于等于64字节
-version: master                                   # <必选项> 组件版本号
-description: stm32u5_b_u585i_iot02a board configure.             # <必选项> 建议至少20字以上
-type: board                                        # <必选项> 组件类型，为：solution, chip, board, common
+name: cmsis                                                                         # <必选项> 包名称 （符合C语言变量命名规则），长度少于等于64字节
+version: master                                                                     # <必选项> 组件版本号
+description: Cortex Microcontroller Software Interface Standard core headers.       # <必选项> 建议至少20字以上
+type: common                                                                        # <必选项> 组件类型，为：solution, chip, board, common, sdk
 
-tag: 核心模块                                      # <可选项> 组件分类，缺省值： ''
+tag: 核心模块                                       # <可选项> 组件分类，缺省值： ''
+keywords:                                           # <可选项> 标签，会影响到组件被搜索的效果，合理的标签很重要
+  - base
+license: Apache license v2.0                        # <可选项> 源代码的许可证，要确保所有代码、文件的许可证不冲突。如：MIT，Apache license v2.0，BSD
 
 ## 第二部分：依赖信息
 #           指定该组件依赖的组件及版本，版本支持条件比较，支持：>=v1.0, >v1.0, ==v1.0, <=v1.0, <v1.0, v1.0
@@ -13,21 +16,6 @@ tag: 核心模块                                      # <可选项> 组件分�
 # depends:                                 # <可选项> 该组件依赖其他的组件，合理的依赖才能保证组件能编译、使用
 #   - minilibc: v7.2.0
 #   - aos: >=v7.2.0
-depends:
-  - libc_stub: master
-  - stm32u5: master
-  - init: master
-  - ulog: master
-  - debug: master
-  - uart: master
-  - kv: develop
-  - csi: master
-  - cmsis: master
-  # - kernel_init: v7.4_dev
-  # - minialsa: v7.4-dev
-  # - drv_sdmmc: v7.4-dev
-  # - drv_wifi_rtl8723ds: v7.4-dev
-  # - drv_bt_rtl8723ds: v7.4-dev
 
 ## 第四部分：编译连接信息
 # build_config:                            # <可选项> 编译配置项
@@ -49,47 +37,17 @@ depends:
 #     - libs                               #   -Llibs
 build_config:
   include:
-    - drivers/
-    - config/
-  cflag: 
-  asmflag: -c -x assembler-with-cpp -g -DDEBUG -DUSE_HAL_DRIVER -DSTM32U585xx
-  ldflag: -mcpu=cortex-m33  --specs=nano.specs -Wl,-Map="aos.map" -Wl,--gc-sections -static -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+    - Core/Include
 
 # source_file:                             # <可选项> 指定参与编译的源代码文件，支持通配符，采用相对路径
 #   - src/*.c                              # 例：组件 src 目录下所有的扩展名为 c 的源代码文件
 source_file:
-  - "drivers/stm32u5xx_hal_msp.c"
-  - "drivers/stm32u5xx_it.c"
-  - "startup/startup.c"
-  - "config/board.c"
-  - "config/partition_conf.c"
-  - "config/k_config.c"
-  - "startup/startup_gcc.s"
-
 
 ## 第五部分：配置信息
-# def_config:                              # 组件的可配置项
+def_config:                              # 组件的可配置项
 #   CONFIG_DEBUG: y
 #   CONFIG_PARAM_NOT_CHECK: y
 #   CONFIG_CLI: y
-def_config:
-  CONFIG_LWIP_VERSION: "lwip2.0.0"
-  CONFIG_LWIP_V200: y
-  WITH_LWIP: 1
-  POSIX_DEVICE_IO_NEED: 1
-  # MTD partition config to support mtd vfs apis(open/close/read/write/ioctl).
-  MTD_PART_ID_BOOT:      0
-  MTD_PART_ID_ENV2:      1
-  MTD_PART_ID_2ND_BOOT:  2
-  MTD_PART_ID_KERNEL:    3
-  MTD_PART_ID_2ND_BOOT2: 4
-  MTD_PART_ID_KERNEL2:   5
-  MTD_PART_ID_FS:        6
-  MTD_PART_ID_BOOT_SEC:  7
-  MTD_PART_ID_ENV:       8
-  MTD_PART_ID_KV:        9
-  MTD_PART_ID_FACTORY:   10
-
 ## 第六部分：安装信息
 # install:
 #   - dest: include/                       # 安装的目的路径 dest是相当路径，通常是相对于YoC SDK 安装目录
@@ -98,11 +56,7 @@ def_config:
 install:
   - dest: "include/"
     source:
-      - "drivers/*.h"
-      - "config/*.h"
-
-board:
-  chip_name: stm32u5
+      - Core/Include
 
 ## 第七部分：导出部分
 # export:
